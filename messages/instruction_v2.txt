@@ -1,19 +1,6 @@
-Witaj!
-Eksperyment, w którym bierzesz udział ma na celu zrozumienie mechanizmów leżących u podłoża
-uwagi temporalnej.
-Na początku każdej próby, na ekranie pojawią się dwa nałożone na siebie okręgi o różnej
-średnicy, które będą zawierać informację o czasie pojawienia się następnego bodźca.
-Podświetlenie mniejszego kręgu oznacza, że następny bodziec pojawi się po krótszym czasie.
-Podświetlenie większego okręgu oznacza, że następny bodziec pojawi się po dłuższym czasie.
-W połowie przypadków, oba okręgi będą podświetlone i będzie to znaczyło, że nie dostarczają
-one żadnej informacji o czasie pojawienia się następnego bodźca.
-Następnie na środku ekranu pojawi się + albo x. Twoim zadaniem jest nacisnąć przycisk ,,l’’
-na klawiaturze prawym palcem wskazującym jeśli pojawia się +, albo przycisk ,,a’ lewym palcem
-wskazującym jeśli pojawia się x. Postaraj się reagować najszybciej jak to możliwe, udzielając
-jednocześnie prawidłowej odpowiedzi.
-W części prób, po pojawieniu się któregoś z obiektów (+ albo x), usłyszysz krótki dźwięk.
-Oznacza to, że musisz powstrzymać się od naciśnięcia przycisku. Czasem, szczególnie, gdy
-dźwięk pojawi się po dłuższym czasie, będzie to trudne, ważne jest jednak, żebyś NIE CZEKAŁ
-na pojawienie się dźwięku.
-Pamiętaj - zadanie polega na korzystaniu ze wskazówek(okręgów) dotyczących czasu pojawienia
-się następnych bodźców.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<--insert-->
