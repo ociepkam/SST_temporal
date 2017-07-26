@@ -26,5 +26,5 @@ def experiment_info(observer):
     if not my_dlg.OK:
         exit(1)
 
-    #          id               sex             age          observer
-    return my_dlg.data[0], my_dlg.data[2], my_dlg.data[1], my_dlg.data[3], my_dlg.data[4], my_dlg.data[5], date
+    #          id               sex             age          observer       keys matching        experiment order
+    return my_dlg.data[0], my_dlg.data[2], my_dlg.data[1], my_dlg.data[3], int(my_dlg.data[4]), int(my_dlg.data[5]), date

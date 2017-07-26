@@ -6,10 +6,12 @@ from code.check_exit import check_exit
 from code.triggers import prepare_trigger, TriggerTypes, send_trigger
 
 
-def ophthalmic_procedure(win, screen_res, frames_per_sec, trigger_no, triggers_list, text_size,
-                         send_eeg_triggers=False, send_nirs_triggers=False, port_eeg=None, port_nirs=None,
-                         vis_offset=60, secs_of_msg=5, secs_of_blinks=9, secs_of_saccades=9):
+def ophthalmic_procedure(win, screen_res, frames_per_sec, trigger_no, triggers_list, text_size=40, text_color='black',
+                         text_font='Arial', send_eeg_triggers=False, send_nirs_triggers=False, port_eeg=None,
+                         port_nirs=None, vis_offset=60, secs_of_msg=5, secs_of_blinks=9, secs_of_saccades=9):
     """
+    :param text_font:
+    :param text_color:
     :param port_nirs:
     :param port_eeg:
     :param send_nirs_triggers:
@@ -31,14 +33,15 @@ def ophthalmic_procedure(win, screen_res, frames_per_sec, trigger_no, triggers_l
     ophthalmic_info = read_text_from_file(os.path.join('.', 'messages', 'ophthalmic_instruction.txt'))
     corners_info = read_text_from_file(os.path.join('.', 'messages', 'ophthalmic_corners.txt'))
 
-    ophthalmic_info = visual.TextStim(win=win, font=u'Arial', text=ophthalmic_info, height=text_size,
-                                      wrapWidth=screen_res['width'], color=u'black')
-    corners_info = visual.TextStim(win=win, font=u'Arial', text=corners_info, height=text_size,
-                                   wrapWidth=screen_res['width'], color=u'black')
+    ophthalmic_info = visual.TextStim(win=win, font=text_font, text=ophthalmic_info, height=text_size,
+                                      wrapWidth=screen_res['width'], color=text_color)
+    corners_info = visual.TextStim(win=win, font=text_font, text=corners_info, height=text_size,
+                                   wrapWidth=screen_res['width'], color=text_color)
     # crosses are located in corners
     crosses = [[x, y] for x in [-screen_res['width'] / 2 + vis_offset, screen_res['width'] / 2 - vis_offset] for y in
                [-screen_res['height'] / 2 + vis_offset, screen_res['height'] / 2 - vis_offset]]
-    crosses = [visual.TextStim(win=win, text=u'+', height=3 * text_size, color=u'black', pos=pos) for pos in crosses]
+    crosses = [visual.TextStim(win=win, font=text_font, text=u'+', height=3 * text_size, color=text_color, pos=pos) for
+               pos in crosses]
 
     ophthalmic_info.setAutoDraw(True)
     for _ in range(frames_per_sec * secs_of_msg):

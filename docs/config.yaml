@@ -21,7 +21,7 @@ show_time_GO: 1
 show_time_ST: 0.075
 show_time_break: [1, 1.5]
 
-Keys: [{stim: x, hand: left, key: a}, {stim: +, hand: right, key: l}]
+keys: [{stim: x, hand: left, key: a}, {stim: +, hand: right, key: l}]
 
 stop_traials_in_percentage: 25
 stop_possible_wait_times: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]

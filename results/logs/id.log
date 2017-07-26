@@ -1,0 +1,110 @@
+1.8067 	ERROR 	avbin.dll failed to load.
+                     Try importing psychopy.visual as the first library
+                     (before anything that uses scipy)
+                     and make sure that avbin is installed.
+1.8483 	ERROR 	avbin.dll failed to load.
+                     Try importing psychopy.visual as the first library
+                     (before anything that uses scipy)
+                     and make sure that avbin is installed.
+4.4799 	INFO 	Date: 1, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:15
+4.5278 	INFO 	Screen res set as: 1920x1080
+4.5282 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.3582 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x02FAFAA8>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.3743 	EXP 	window1: recordFrameIntervals = False
+5.5409 	EXP 	window1: recordFrameIntervals = True
+6.0577 	EXP 	window1: recordFrameIntervals = False
+6.0577 	INFO 	Detected framerate: 60 frames per sec.
+1.8080 	ERROR 	avbin.dll failed to load.
+                     Try importing psychopy.visual as the first library
+                     (before anything that uses scipy)
+                     and make sure that avbin is installed.
+1.8493 	ERROR 	avbin.dll failed to load.
+                     Try importing psychopy.visual as the first library
+                     (before anything that uses scipy)
+                     and make sure that avbin is installed.
+3.1576 	INFO 	Date: 1
+ID: id
+Sex: MALE
+Age: 20
+Observer: Inga
+Keys matching: 1
+Experiment order: 2017-07-26 13:16
+3.1942 	INFO 	Screen res set as: 1920x1080
+3.1946 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+3.9682 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x02FAFAA8>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+3.9844 	EXP 	window1: recordFrameIntervals = False
+4.1511 	EXP 	window1: recordFrameIntervals = True
+4.6678 	EXP 	window1: recordFrameIntervals = False
+4.6678 	INFO 	Detected framerate: 60 frames per sec.
+4.8081 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:43
+4.8450 	INFO 	Screen res set as: 1920x1080
+4.8453 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.6361 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x03F3F418>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.6523 	EXP 	window1: recordFrameIntervals = False
+5.8189 	EXP 	window1: recordFrameIntervals = True
+6.3356 	EXP 	window1: recordFrameIntervals = False
+6.3357 	INFO 	Detected framerate: 60 frames per sec.
+5.3088 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:44
+5.3674 	INFO 	Screen res set as: 1920x1080
+5.3680 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+6.2039 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x067DD418>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.2201 	EXP 	window1: recordFrameIntervals = False
+6.3868 	EXP 	window1: recordFrameIntervals = True
+6.9035 	EXP 	window1: recordFrameIntervals = False
+6.9035 	INFO 	Detected framerate: 60 frames per sec.
+4.7060 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:45
+4.7550 	INFO 	Screen res set as: 1920x1080
+4.7554 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.5341 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x0312BE18>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.5503 	EXP 	window1: recordFrameIntervals = False
+5.7170 	EXP 	window1: recordFrameIntervals = True
+6.2337 	EXP 	window1: recordFrameIntervals = False
+6.2338 	INFO 	Detected framerate: 60 frames per sec.
+4.7490 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:45
+4.7913 	INFO 	Screen res set as: 1920x1080
+4.7917 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.5943 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x06105418>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.6105 	EXP 	window1: recordFrameIntervals = False
+5.7771 	EXP 	window1: recordFrameIntervals = True
+6.2939 	EXP 	window1: recordFrameIntervals = False
+6.2939 	INFO 	Detected framerate: 60 frames per sec.
+4.7183 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:46
+4.7619 	INFO 	Screen res set as: 1920x1080
+4.7622 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.5296 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x03AA0E18>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.5458 	EXP 	window1: recordFrameIntervals = False
+5.7124 	EXP 	window1: recordFrameIntervals = True
+6.2292 	EXP 	window1: recordFrameIntervals = False
+6.2292 	INFO 	Detected framerate: 60 frames per sec.
+4.7392 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 2017-07-26 13:46
+4.7862 	INFO 	Screen res set as: 1920x1080
+4.7866 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.5676 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x031C3E18>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.5838 	EXP 	window1: recordFrameIntervals = False
+5.7505 	EXP 	window1: recordFrameIntervals = True
+6.2672 	EXP 	window1: recordFrameIntervals = False
+6.2672 	INFO 	Detected framerate: 60 frames per sec.
+7.6391 	INFO 	Date: 2, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 2, Experiment order: 2017-07-26 13:47
+7.6832 	INFO 	Screen res set as: 1920x1080
+7.6836 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+8.4840 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x03972E18>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+8.5002 	EXP 	window1: recordFrameIntervals = False
+8.6668 	EXP 	window1: recordFrameIntervals = True
+9.1836 	EXP 	window1: recordFrameIntervals = False
+9.1836 	INFO 	Detected framerate: 60 frames per sec.
+4.6927 	INFO 	Date: 2017-07-26 13:49, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 2, Experiment order: 1
+4.7416 	INFO 	Screen res set as: 1920x1080
+4.7421 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.5212 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x06533418>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.5374 	EXP 	window1: recordFrameIntervals = False
+5.7041 	EXP 	window1: recordFrameIntervals = True
+6.2209 	EXP 	window1: recordFrameIntervals = False
+6.2209 	INFO 	Detected framerate: 60 frames per sec.
+3.2984 	INFO 	Date: 2017-07-26 13:49, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 1
+3.3432 	INFO 	Screen res set as: 1920x1080
+3.3436 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+4.1434 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='Gainsboro', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x03A62E18>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.1596 	EXP 	window1: recordFrameIntervals = False
+4.3262 	EXP 	window1: recordFrameIntervals = True
+4.8430 	EXP 	window1: recordFrameIntervals = False
+4.8430 	INFO 	Detected framerate: 60 frames per sec.
