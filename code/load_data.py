@@ -12,7 +12,6 @@ def load_config():
         raise Exception("Can't load config file")
 
 
-# TODO: change to new instructions
 def read_text_from_file(file_name, insert=''):
     """
     Method that read message from text file, and optionally add some

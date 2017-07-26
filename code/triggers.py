@@ -48,3 +48,8 @@ def send_trigger(trigger_no, port_eeg=None, port_nirs=None, send_eeg_triggers=Fa
             port_eeg.setData(0x00)
         except:
             pass
+    if send_nirs_triggers:
+        try:
+            port_nirs.activate_line(trigger_no)
+        except:
+            pass

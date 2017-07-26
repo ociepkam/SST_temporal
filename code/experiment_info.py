@@ -2,7 +2,6 @@ import datetime
 from psychopy import gui
 
 
-# TODO: choosing type of experiment (key matching, blocks order)
 def experiment_info(observer):
     """
     okienko dialogowe na podczas uruchomienia procedury
