@@ -4,7 +4,7 @@
 from psychopy import logging
 import os
 
-from code.load_data import load_config
+from code.load_data import load_config, load_data
 from code.experiment_info import experiment_info
 from code.triggers import create_eeg_port
 from code.screen import create_win
@@ -35,6 +35,10 @@ def run():
     # screen
     win, screen_res, frames_per_sec = create_win(screen_color=config['screen_color'])
 
+    # load data
+    list_stops = load_data(win=win, folder_name="stop", config=config, screen_res=screen_res)
+    list_go = load_data(win=win, folder_name="go", config=config, screen_res=screen_res)
+    list_tips = load_data(win=win, folder_name="tip", config=config, screen_res=screen_res)
     # TODO: prepare experiment
 
     # Keys version
