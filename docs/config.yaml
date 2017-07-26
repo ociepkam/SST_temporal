@@ -4,9 +4,9 @@ send_EEG_trigg: false
 
 ophthalmic_procedure: true
 
-training_blocks: [[{short: 5},{long: 5},{short: 15, long: 15}], [{neutral: 20}]]
-experiment_blocks_v1: [[{short: 64, long: 64}],[{short: 64, long: 64}], [{neutral: 128}], [{neutral: 128}], [{short: 64, long: 64}], [{short: 64, long: 64}], [{neutral: 128}], [{neutral: 128}]]
-experiment_blocks_v2: [[{neutral: 128}], [{neutral: 128}], [{short: 64, long: 64}], [{short: 64, long: 64}], [{neutral: 128}], [{neutral: 128}], [{short: 64, long: 64}],[{short: 64, long: 64}]]
+training_blocks: [[{temporal_short: 5},{temporal_long: 5},{temporal_short: 15, temporal_long: 15}], [{neutral_short: 10, neutral_long: 10}]]
+experiment_blocks_v1: [[{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}]]
+experiment_blocks_v2: [[{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}]]
 
 break_show_answers_correctness: false
 break_show_keys_mapping: false
