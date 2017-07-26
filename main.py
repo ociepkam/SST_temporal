@@ -13,6 +13,9 @@ from code.show_info import show_info, prepare_keys_info
 
 __author__ = 'ociepkam'
 
+folder_stop = os.path.join('stimulus', 'stop')
+folder_go = os.path.join('stimulus', 'go')
+folder_tip = os.path.join('stimulus', 'tip')
 
 def run():
     config = load_config()
@@ -36,9 +39,10 @@ def run():
     win, screen_res, frames_per_sec = create_win(screen_color=config['screen_color'])
 
     # load data
-    list_stops = load_data(win=win, folder_name="stop", config=config, screen_res=screen_res)
-    list_go = load_data(win=win, folder_name="go", config=config, screen_res=screen_res)
-    list_tips = load_data(win=win, folder_name="tip", config=config, screen_res=screen_res)
+    list_stops = load_data(win=win, folder_name=folder_stop, config=config, screen_res=screen_res)
+    list_go = load_data(win=win, folder_name=folder_go, config=config, screen_res=screen_res)
+    list_tips = load_data(win=win, folder_name=folder_tip, config=config, screen_res=screen_res)
+
     # TODO: prepare experiment
 
     # Keys version
