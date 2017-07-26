@@ -2,7 +2,7 @@ observer: Inga
 
 send_EEG_trigg: false
 
-ophthalmic_procedure: true
+ophthalmic_procedure: false
 
 training_blocks: [[{temporal_short: 5},{temporal_long: 5},{temporal_short: 15, temporal_long: 15}], [{neutral_short: 10, neutral_long: 10}]]
 experiment_blocks_v1: [[{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}]]
@@ -21,13 +21,13 @@ show_time_GO: 1
 show_time_ST: 0.075
 show_time_break: [1, 1.5]
 
-keys: [{stim: x, hand: left, key: a}, {stim: +, hand: right, key: l}]
+keys: [{stim: x, hand: lewym, key: a}, {stim: +, hand: prawym, key: l}]
 
 stop_traials_in_percentage: 25
 stop_possible_wait_times: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
 stop_start_wait_time: 0.1
 
-text_color: black
+text_color: white
 text_size: 40
 text_font: Arial
-screen_color: Gainsboro
+screen_color: black

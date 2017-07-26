@@ -108,3 +108,45 @@ Experiment order: 2017-07-26 13:16
 4.3262 	EXP 	window1: recordFrameIntervals = True
 4.8430 	EXP 	window1: recordFrameIntervals = False
 4.8430 	INFO 	Detected framerate: 60 frames per sec.
+3.6685 	INFO 	Date: 2017-07-26 15:01, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 1
+3.7209 	INFO 	Screen res set as: 1920x1080
+3.7213 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+4.5173 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='black', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x030A1328>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+4.5335 	EXP 	window1: recordFrameIntervals = False
+4.7001 	EXP 	window1: recordFrameIntervals = True
+5.2169 	EXP 	window1: recordFrameIntervals = False
+5.2169 	INFO 	Detected framerate: 60 frames per sec.
+5.2169 	INFO 	Starting ophthalmic procedure... 
+5.3411 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=40, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='pix', win=Window(...), wrapWidth=1920)
+5.3554 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=40, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='pix', win=Window(...), wrapWidth=1920)
+5.3626 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=120, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([-900., -480.]), rgb=array([ 255.,  255.,  255.]), text=u'+', units='pix', win=Window(...), wrapWidth=500)
+5.3648 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=120, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([-900.,  480.]), rgb=array([ 255.,  255.,  255.]), text=u'+', units='pix', win=Window(...), wrapWidth=500)
+5.3670 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=120, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 900., -480.]), rgb=array([ 255.,  255.,  255.]), text=u'+', units='pix', win=Window(...), wrapWidth=500)
+5.3691 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=120, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 900.,  480.]), rgb=array([ 255.,  255.,  255.]), text=u'+', units='pix', win=Window(...), wrapWidth=500)
+5.3834 	EXP 	unnamed TextStim: autoDraw = True
+10.3828 	EXP 	unnamed TextStim: autoDraw = False
+19.3983 	EXP 	unnamed TextStim: autoDraw = True
+24.3976 	EXP 	unnamed TextStim: autoDraw = False
+24.3976 	EXP 	unnamed TextStim: autoDraw = True
+24.3976 	EXP 	unnamed TextStim: autoDraw = True
+24.3976 	EXP 	unnamed TextStim: autoDraw = True
+24.3976 	EXP 	unnamed TextStim: autoDraw = True
+33.3965 	EXP 	unnamed TextStim: autoDraw = False
+33.3965 	EXP 	unnamed TextStim: autoDraw = False
+33.3965 	EXP 	unnamed TextStim: autoDraw = False
+33.3965 	EXP 	unnamed TextStim: autoDraw = False
+33.3965 	INFO 	Ophthalmic procedure finished correctly!
+33.4522 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=40, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='pix', win=Window(...), wrapWidth=1920)
+707.7987 	DATA 	Keypress: space
+707.8520 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=40, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='pix', win=Window(...), wrapWidth=1920)
+710.0062 	DATA 	Keypress: space
+4.3984 	INFO 	Date: 2017-07-26 15:14, ID: id, Sex: MALE, Age: 20, Observer: Inga, Keys matching: 1, Experiment order: 1
+4.4468 	INFO 	Screen res set as: 1920x1080
+4.4472 	INFO 	Loaded monitor calibration from ['2015_01_04 15:20']
+5.2433 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color='black', colorSpace='named', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x02F92328>, name='window1', pos=[0, 0], screen=0, size=array([1920, 1080]), stereo=False, units='pix', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+5.2595 	EXP 	window1: recordFrameIntervals = False
+5.4262 	EXP 	window1: recordFrameIntervals = True
+5.9429 	EXP 	window1: recordFrameIntervals = False
+5.9429 	INFO 	Detected framerate: 60 frames per sec.
+6.1161 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=40, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='pix', win=Window(...), wrapWidth=1920)
+8.4747 	DATA 	Keypress: space

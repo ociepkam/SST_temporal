@@ -2,12 +2,14 @@
 # -*- coding: utf-8 -*-
 
 from psychopy import logging
+import os
 
 from code.load_data import load_config
 from code.experiment_info import experiment_info
 from code.triggers import create_eeg_port
 from code.screen import create_win
 from code.ophthalmic_procedure import ophthalmic_procedure
+from code.show_info import show_info, prepare_keys_info
 
 __author__ = 'ociepkam'
 
@@ -17,7 +19,7 @@ def run():
 
     part_id, sex, age, observer_id, keys_matching_version, experiment_order_version, date = experiment_info(config['observer'])
 
-    logging.LogFile('results/logs/' + part_id + '.log', level=logging.INFO)
+    logging.LogFile(os.path.join('results', 'logs', part_id + '.log'), level=logging.INFO)
     logging.info("Date: {}, ID: {}, Sex: {}, Age: {}, Observer: {}, Keys matching: {}, Experiment order: {}".format(
                   date, part_id, sex, age, observer_id, str(keys_matching_version), str(experiment_order_version)))
 
@@ -42,6 +44,7 @@ def run():
                 config['keys'][idx]['stim'] = 'x'
             else:
                 config['keys'][idx]['stim'] = '+'
+    keys_list = [prepare_keys_info(config['keys'])]
 
     # Run experiment
     # Ophthalmic procedure
@@ -52,6 +55,21 @@ def run():
                                                          triggers_list=triggers_list, text_size=config['text_size'],
                                                          text_color=config['text_color'], text_font=config['text_font'])
 
+    # Instruction
+    instructions = sorted([f for f in os.listdir('messages') if f.startswith('instruction')])
+    for idx, instruction in enumerate(instructions):
+        show_info(win=win, file_name=os.path.join('messages', instruction), text_size=config['text_size'],
+                  text_color=config['text_color'], text_font=config['text_font'], screen_width=screen_res['width'],
+                  replace_list=keys_list[idx])
+
+    # TODO:
+    #       Training
+    #       Experiment
+    #       Save data
+
+    # Experiment end
+    show_info(win=win, file_name=os.path.join('messages', 'end.txt'), text_size=config['Text_size'],
+              screen_width=screen_res['width'])
     logging.flush()
 
 

@@ -4,9 +4,22 @@ import os
 from code.load_data import read_text_from_file
 
 
-def show_info(win, file_name, text_size, screen_width, insert=''):
+def prepare_keys_info(keys_info):
+    res = []
+    for elem in keys_info:
+        res.append(elem['key'])
+        res.append(elem['hand'])
+        res.append(elem['stim'])
+    return res
+
+
+def show_info(win, file_name, text_size, screen_width, insert='',
+              replace_list=None, text_color='black', text_font='Arial'):
     """
     Clear way to show info message into screen.
+    :param text_font:
+    :param text_color:
+    :param replace_list: list with elements to replace {} in text
     :param win:
     :param file_name:
     :param screen_width:
@@ -15,9 +28,15 @@ def show_info(win, file_name, text_size, screen_width, insert=''):
     :return:
     """
     hello_msg = read_text_from_file(file_name, insert=insert)
-    hello_msg = visual.TextStim(win=win, antialias=True, font=u'Arial',
+    if replace_list is not None:
+        for elem in replace_list:
+            try:
+                hello_msg = hello_msg.replace("{}", elem, 1)
+            except:
+                raise TypeError('to less {} in  instruction')
+    hello_msg = visual.TextStim(win=win, antialias=True, font=text_font,
                                 text=hello_msg, height=text_size,
-                                wrapWidth=screen_width, color=u'black',
+                                wrapWidth=screen_width, color=text_color,
                                 alignHoriz='center', alignVert='center')
     hello_msg.draw()
     win.flip()
@@ -45,13 +64,3 @@ def break_info(show_answers_correctness, show_response_time, show_stopped_ratio,
     return extra_info
 
 
-def prepare_buttons_info(dict_to_show):
-    new_dict = dict()
-    for key in dict_to_show:
-        key_type = key.split('_')[0]
-        new_dict[key_type] = dict_to_show[key]
-
-    info_to_show = ''
-    for key in new_dict:
-        info_to_show += '{}: {}, '.format(key, new_dict[key])
-    return info_to_show[:-2]
