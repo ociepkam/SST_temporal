@@ -1,9 +1,9 @@
 from psychopy import visual, logging
 import os
 
-from classes.load_data import read_text_from_file
-from classes.check_exit import check_exit
-from classes.triggers import prepare_trigger, TriggerTypes, send_trigger
+from code.load_data import read_text_from_file
+from code.check_exit import check_exit
+from code.triggers import prepare_trigger, TriggerTypes, send_trigger
 
 
 def ophthalmic_procedure(win, screen_res, frames_per_sec, trigger_no, triggers_list, text_size,

@@ -1,7 +1,7 @@
 from psychopy import visual, event
 import os
 
-from classes.load_data import read_text_from_file
+from code.load_data import read_text_from_file
 
 
 def show_info(win, file_name, text_size, screen_width, insert=''):
