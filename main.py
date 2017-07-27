@@ -3,11 +3,13 @@
 
 from psychopy import logging
 import os
+import copy
 
 from code.load_data import load_config, load_data
 from code.experiment_info import experiment_info
 from code.triggers import create_eeg_port
 from code.screen import create_win
+from code.prepare_experiment import create_stops_times_dict
 from code.ophthalmic_procedure import ophthalmic_procedure
 from code.show_info import show_info, prepare_keys_info
 
@@ -16,6 +18,8 @@ __author__ = 'ociepkam'
 folder_stop = os.path.join('stimulus', 'stop')
 folder_go = os.path.join('stimulus', 'go')
 folder_tip = os.path.join('stimulus', 'tip')
+folder_fixation = os.path.join('stimulus', 'fixation_point')
+
 
 def run():
     config = load_config()
@@ -42,7 +46,12 @@ def run():
     list_stops = load_data(win=win, folder_name=folder_stop, config=config, screen_res=screen_res)
     list_go = load_data(win=win, folder_name=folder_go, config=config, screen_res=screen_res)
     list_tips = load_data(win=win, folder_name=folder_tip, config=config, screen_res=screen_res)
+    list_fixation = load_data(win=win, folder_name=folder_fixation, config=config, screen_res=screen_res)
 
+    # prepare stop tricking for each tip
+    stops_times = create_stops_times_dict(list_tips, config['stop_start_wait_time'])
+    stops_times_train = copy.copy(stops_times)
+    print stops_times
     # TODO: prepare experiment
 
     # Keys version
