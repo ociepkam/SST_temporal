@@ -51,8 +51,9 @@ def run():
     # prepare stop tricking for each tip
     stops_times = create_stops_times_dict(list_tips, config['stop_start_wait_time'])
     stops_times_train = copy.copy(stops_times)
-    print stops_times
-    # TODO: prepare experiment
+
+    experiment_blocks = config['experiment_blocks_v{}'.format(experiment_order_version)]
+
 
     # Keys version
     if keys_matching_version == 2:
