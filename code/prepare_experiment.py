@@ -48,7 +48,9 @@ def prepare_stops(stops, number_of_trials, percent_of_trials_with_stop=25):
 
 def block_part_creator(go_table, stop_table, tip):
     assert len(stop_table) == len(go_table), "len(stop_table) != len(arrows_table)"
-    return [{'go': go, 'stop': stop, 'tip': tip} for go, stop in zip(go_table, stop_table)]
+    block_part = [{'go': go, 'stop': stop, 'tip': tip} for go, stop in zip(go_table, stop_table)]
+    random.shuffle(block_part)
+    return block_part
 
 
 def blocks_creator(blocks, breaks):
