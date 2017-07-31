@@ -48,9 +48,7 @@ def prepare_stops(stops, number_of_trials, percent_of_trials_with_stop=25):
 
 def block_part_creator(go_table, stop_table, tip):
     assert len(stop_table) == len(go_table), "len(stop_table) != len(arrows_table)"
-    block_part = [{'go': go, 'stop': stop, 'tip': tip} for go, stop in zip(go_table, stop_table)]
-    random.shuffle(block_part)
-    return block_part
+    return [{'go': go, 'stop': stop, 'tip': tip} for go, stop in zip(go_table, stop_table)]
 
 
 def blocks_creator(blocks, breaks):
@@ -65,13 +63,16 @@ def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with
         for block in blocks:
             training_block = []
             for block_part in block:
+                training_block_part = []
                 for trials_type_key, trials_type_value in block_part.iteritems():
                     block_part_go_list = prepare_go(list_go=list_go, number_of_trials=trials_type_value)
                     block_part_stop_list = prepare_stops(stops=list_stops, number_of_trials=trials_type_value,
                                                          percent_of_trials_with_stop=percent_of_trials_with_stop)
                     block_part_tip = [elem for elem in list_tip if elem[1] == trials_type_key][0]
-                    training_block_part = block_part_creator(block_part_go_list, block_part_stop_list, block_part_tip)
-                    training_block.append(training_block_part)
+                    training_block_part_type = block_part_creator(block_part_go_list, block_part_stop_list, block_part_tip)
+                    training_block_part.extend(training_block_part_type)
+                random.shuffle(training_block_part)
+                training_block.append(training_block_part)
             trials.append(training_block)
         breaks = [os.path.join('messages', '{}_{}.txt'.format(breaks_name, idx + 1)) for idx in range(len(trials))]
         return blocks_creator(trials, breaks)
