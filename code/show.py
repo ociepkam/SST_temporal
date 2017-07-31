@@ -27,6 +27,7 @@ def draw_tip(win, tip, show_time):
     win.flip()
 
 
+# TODO: nie dziala stop
 def start_stimulus(win, stimulus, send_eeg_triggers, send_nirs_triggers):
     global TRIGGER_NO, SYSTEM, PLAYER
 
@@ -90,7 +91,6 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
 
     reaction_time = None
     response = None
-    # TODO: triggers
     trigger_name = prepare_trigger_name(trial=trial, stop_show_start=real_stop_show_start)
     TRIGGER_NO, TRIGGERS_LIST = prepare_trigger(trigger_type=TriggerTypes.GO, trigger_no=TRIGGER_NO,
                                                 triggers_list=TRIGGERS_LIST, trigger_name=trigger_name)

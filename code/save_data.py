@@ -9,7 +9,6 @@ def save_triggers(data, name):
             mapFile.writelines(row)
 
 
-# TODO: change to new beh
 def save_beh(data, name):
     with open(os.path.join('results', 'behavioral_data', 'beh_{}.csv'.format(name)), 'w') as csvfile:
         fieldnames = ['Nr', 'tip_type', 'GO_type', 'RE_key', 'RE_true', 'RE_time', 'ST_name', 'ST_wait_time']

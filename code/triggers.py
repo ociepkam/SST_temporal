@@ -18,7 +18,6 @@ def create_eeg_port():
         raise Exception("Can't connect to EEG")
 
 
-# TODO: change to new triggers
 def prepare_trigger_name(trial, stop_show_start=None):
     name = "*{}*{}".format(trial['go'][1], trial['tip'][1])
     if trial['stop'] is not None:

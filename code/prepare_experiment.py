@@ -57,6 +57,7 @@ def blocks_creator(blocks, breaks):
     return blocks
 
 
+# TODO: randomizacja powoduje, ze pojawiaja sie dwa stopy pod rzad
 def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with_stop, breaks_name):
     trials = []
     if blocks:
