@@ -9,8 +9,8 @@ atraining_blocks: [[{temporal_short: 5},{temporal_long: 5},{temporal_short: 15, 
 aexperiment_blocks_v1: [[{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}]]
 aexperiment_blocks_v2: [[{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}]]
 
-training_blocks: [[{temporal_short: 1}]]
-experiment_blocks_v1: [[{temporal_short: 1, temporal_long: 1}], [{neutral_short: 1, neutral_long: 1}], [{temporal_short: 1, temporal_long: 1}], [{neutral_short: 1, neutral_long: 1}]]
+training_blocks: []
+experiment_blocks_v1: [[{temporal_short: 20, temporal_long: 20, neutral_short: 20, neutral_long: 20}]]
 experiment_blocks_v2: [[{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}]]
 
 

@@ -13,6 +13,7 @@ from code.prepare_experiment import create_stops_times_dict, prepare_experiment
 from code.ophthalmic_procedure import ophthalmic_procedure
 from code.show_info import show_info, prepare_keys_info
 from code.show import show
+from code.save_data import save_beh, save_triggers
 
 __author__ = 'ociepkam'
 
@@ -96,8 +97,9 @@ def run():
                               blocks=experiment, stops_times=stops_times_train, background=fixation,
                               trigger_no=trigger_no, triggers_list=list())
 
-    # TODO:
-    #       Save data
+    # Save data
+    save_beh(data=beh, name=part_id)
+    save_triggers(data=triggers_list, name=part_id)
 
     # Experiment end
     show_info(win=win, file_name=os.path.join('messages', 'end.txt'), text_size=config['text_size'],

@@ -226,15 +226,15 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
 
                 if trial['stop'] is not None:
                     data.append({'Nr': trial_number,
-                                 'GO_type': trial['go'][0], 'GO_name': trial['go'][1],
+                                 'tip_type': trial['tip'][1], 'GO_type': trial['go'][1],
                                  'RE_key': response, 'RE_time': reaction_time, 'RE_true': true_RE,
-                                 'ST_type': trial['stop'][0], 'ST_name': trial['stop'][1],
+                                 'ST_name': trial['stop'][1],
                                  'ST_wait_time': stops_times[trial['tip'][1]]})
                 else:
                     data.append({'Nr': trial_number,
-                                 'GO_type': trial['go'][0], 'GO_name': trial['go'][1],
+                                 'tip_type': trial['go'][0], 'GO_type': trial['go'][1],
                                  'RE_key': response, 'RE_true': true_RE, 'RE_time': reaction_time,
-                                 'ST_type': None, 'ST_name': None, 'ST_wait_time': None})
+                                 'ST_name': None, 'ST_wait_time': None})
                 trial_number += 1
 
                 # break info
