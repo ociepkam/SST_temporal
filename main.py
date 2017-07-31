@@ -9,7 +9,7 @@ from code.load_data import load_config, load_data
 from code.experiment_info import experiment_info
 from code.triggers import create_eeg_port
 from code.screen import create_win
-from code.prepare_experiment import create_stops_times_dict
+from code.prepare_experiment import create_stops_times_dict, prepare_experiment
 from code.ophthalmic_procedure import ophthalmic_procedure
 from code.show_info import show_info, prepare_keys_info
 
@@ -24,11 +24,12 @@ folder_fixation = os.path.join('stimulus', 'fixation_point')
 def run():
     config = load_config()
 
-    part_id, sex, age, observer_id, keys_matching_version, experiment_order_version, date = experiment_info(config['observer'])
+    part_id, sex, age, observer_id, keys_matching_version, experiment_order_version, date = experiment_info(
+        config['observer'])
 
     logging.LogFile(os.path.join('results', 'logs', part_id + '.log'), level=logging.INFO)
     logging.info("Date: {}, ID: {}, Sex: {}, Age: {}, Observer: {}, Keys matching: {}, Experiment order: {}".format(
-                  date, part_id, sex, age, observer_id, str(keys_matching_version), str(experiment_order_version)))
+        date, part_id, sex, age, observer_id, str(keys_matching_version), str(experiment_order_version)))
 
     # EEG triggers
     if config['send_EEG_trigg']:
@@ -54,6 +55,13 @@ def run():
 
     experiment_blocks = config['experiment_blocks_v{}'.format(experiment_order_version)]
 
+    training, experiment = prepare_experiment(training_blocks=config['training_blocks'],
+                                              experiment_blocks=experiment_blocks,
+                                              list_go=list_go, list_tip=list_tips, list_stops=list_stops,
+                                              percent_of_trials_with_stop=config['stop_traials_in_percentage'])
+
+    print training
+    print experiment
 
     # Keys version
     if keys_matching_version == 2:
