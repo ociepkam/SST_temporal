@@ -20,9 +20,9 @@ def create_eeg_port():
 
 # TODO: change to new triggers
 def prepare_trigger_name(trial, stop_show_start=None):
-    name = "*{}*{}".format(trial['arrow'][0], trial['arrow'][1])
+    name = "*{}*{}".format(trial['go'][1], trial['tip'][1])
     if trial['stop'] is not None:
-        name += '*{}*{}*{}'.format(trial['stop'][0], trial['stop'][1], stop_show_start)
+        name += '*{}*{}'.format(trial['stop'][1], stop_show_start)
     else:
         name += '*-*-*-'
     # for response

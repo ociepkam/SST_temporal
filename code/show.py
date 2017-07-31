@@ -91,7 +91,7 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
     reaction_time = None
     response = None
     # TODO: triggers
-    trigger_name = ''  # prepare_trigger_name(trial=trial, stop_show_start=real_stop_show_start)
+    trigger_name = prepare_trigger_name(trial=trial, stop_show_start=real_stop_show_start)
     TRIGGER_NO, TRIGGERS_LIST = prepare_trigger(trigger_type=TriggerTypes.GO, trigger_no=TRIGGER_NO,
                                                 triggers_list=TRIGGERS_LIST, trigger_name=trigger_name)
     start_stimulus(win=win, stimulus=trial['go'], send_eeg_triggers=config['send_EEG_trigg'],
@@ -232,7 +232,7 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                                  'ST_wait_time': stops_times[trial['tip'][1]]})
                 else:
                     data.append({'Nr': trial_number,
-                                 'tip_type': trial['go'][0], 'GO_type': trial['go'][1],
+                                 'tip_type': trial['tip'][1], 'GO_type': trial['go'][1],
                                  'RE_key': response, 'RE_true': true_RE, 'RE_time': reaction_time,
                                  'ST_name': None, 'ST_wait_time': None})
                 trial_number += 1
