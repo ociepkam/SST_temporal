@@ -28,12 +28,14 @@ def show_info(win, file_name, text_size, screen_width, insert='',
     :return:
     """
     hello_msg = read_text_from_file(file_name, insert=insert)
+
     if replace_list is not None:
         for elem in replace_list:
             try:
                 hello_msg = hello_msg.replace("{}", elem, 1)
             except:
                 raise TypeError('to less {} in  instruction')
+
     hello_msg = visual.TextStim(win=win, antialias=True, font=text_font,
                                 text=hello_msg, height=text_size,
                                 wrapWidth=screen_width, color=text_color,
@@ -62,5 +64,3 @@ def break_info(show_answers_correctness, show_response_time, show_stopped_ratio,
         extra_info += keys_mapping + '\n'
 
     return extra_info
-
-

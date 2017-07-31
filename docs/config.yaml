@@ -1,20 +1,25 @@
 observer: Inga
 
 send_EEG_trigg: false
+send_Nirs_trigg: false
 
 ophthalmic_procedure: false
 
-training_blocks: [[{temporal_short: 5},{temporal_long: 5},{temporal_short: 15, temporal_long: 15}], [{neutral_short: 10, neutral_long: 10}]]
-experiment_blocks_v1: [[{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}]]
+atraining_blocks: [[{temporal_short: 5},{temporal_long: 5},{temporal_short: 15, temporal_long: 15}], [{neutral_short: 10, neutral_long: 10}]]
+aexperiment_blocks_v1: [[{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}]]
+aexperiment_blocks_v2: [[{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}]]
+
+training_blocks: [[{temporal_short: 1}]]
+experiment_blocks_v1: [[{temporal_short: 1, temporal_long: 1}], [{neutral_short: 1, neutral_long: 1}], [{temporal_short: 1, temporal_long: 1}], [{neutral_short: 1, neutral_long: 1}]]
 experiment_blocks_v2: [[{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{temporal_short: 64, temporal_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{neutral_short: 64, neutral_long: 64}], [{temporal_short: 64, temporal_long: 64}],[{temporal_short: 64, temporal_long: 64}]]
 
+
 break_show_answers_correctness: false
-break_show_keys_mapping: false
 break_show_response_time: false
 break_show_stopped_ratio: false
 
 
-show_time_hint: 0.5
+show_time_tip: 0.5
 show_time_temporal_short: 0.6
 show_time_neutral_short: 0.6
 show_time_temporal_long: 1.4
@@ -22,6 +27,8 @@ show_time_neutral_long: 1.4
 show_time_GO: 1
 show_time_ST: 0.075
 show_time_break: [1, 1.5]
+
+response_time: 1
 
 keys: [{stim: x, hand: lewym, key: a}, {stim: +, hand: prawym, key: l}]
 

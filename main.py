@@ -12,6 +12,7 @@ from code.screen import create_win
 from code.prepare_experiment import create_stops_times_dict, prepare_experiment
 from code.ophthalmic_procedure import ophthalmic_procedure
 from code.show_info import show_info, prepare_keys_info
+from code.show import show
 
 __author__ = 'ociepkam'
 
@@ -47,7 +48,7 @@ def run():
     list_stops = load_data(win=win, folder_name=folder_stop, config=config, screen_res=screen_res)
     list_go = load_data(win=win, folder_name=folder_go, config=config, screen_res=screen_res)
     list_tips = load_data(win=win, folder_name=folder_tip, config=config, screen_res=screen_res)
-    list_fixation = load_data(win=win, folder_name=folder_fixation, config=config, screen_res=screen_res)
+    fixation = load_data(win=win, folder_name=folder_fixation, config=config, screen_res=screen_res)[0]
 
     # prepare stop tricking for each tip
     stops_times = create_stops_times_dict(list_tips, config['stop_start_wait_time'])
@@ -60,9 +61,6 @@ def run():
                                               list_go=list_go, list_tip=list_tips, list_stops=list_stops,
                                               percent_of_trials_with_stop=config['stop_traials_in_percentage'])
 
-    print training
-    print experiment
-
     # Keys version
     if keys_matching_version == 2:
         for idx, elem in enumerate(config['keys']):
@@ -70,9 +68,10 @@ def run():
                 config['keys'][idx]['stim'] = 'x'
             else:
                 config['keys'][idx]['stim'] = '+'
-    keys_list = [prepare_keys_info(config['keys'])]
+    keys_info_list = [prepare_keys_info(config['keys'])]
+    config['keys_list'] = [elem['key'] for elem in config['keys']]
 
-    # Run experiment
+    # ---------------------- Run experiment ---------------------- #
     # Ophthalmic procedure
     if config['ophthalmic_procedure']:
         trigger_no, triggers_list = ophthalmic_procedure(win=win, send_eeg_triggers=config['send_EEG_trigg'],
@@ -86,16 +85,23 @@ def run():
     for idx, instruction in enumerate(instructions):
         show_info(win=win, file_name=os.path.join('messages', instruction), text_size=config['text_size'],
                   text_color=config['text_color'], text_font=config['text_font'], screen_width=screen_res['width'],
-                  replace_list=keys_list[idx])
+                  replace_list=keys_info_list[idx])
+
+    # Training
+    show(config=config, win=win, screen_res=screen_res, frames_per_sec=frames_per_sec, blocks=training,
+         stops_times=stops_times_train, background=fixation, trigger_no=trigger_no, triggers_list=list())
+
+    # Experiment
+    beh, triggers_list = show(config=config, win=win, screen_res=screen_res, frames_per_sec=frames_per_sec,
+                              blocks=experiment, stops_times=stops_times_train, background=fixation,
+                              trigger_no=trigger_no, triggers_list=list())
 
     # TODO:
-    #       Training
-    #       Experiment
     #       Save data
 
     # Experiment end
-    show_info(win=win, file_name=os.path.join('messages', 'end.txt'), text_size=config['Text_size'],
-              screen_width=screen_res['width'])
+    show_info(win=win, file_name=os.path.join('messages', 'end.txt'), text_size=config['text_size'],
+              text_color=config['text_color'], screen_width=screen_res['width'])
     logging.flush()
 
 
