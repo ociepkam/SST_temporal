@@ -23,11 +23,10 @@ def draw_tip(win, tip, show_time):
     win.flip()
     time.sleep(show_time)
     tip.setAutoDraw(False)
-    check_exit()
     win.flip()
+    check_exit()
 
 
-# TODO: nie dziala stop
 def start_stimulus(win, stimulus, send_eeg_triggers, send_nirs_triggers):
     global TRIGGER_NO, SYSTEM, PLAYER
 
@@ -48,9 +47,14 @@ def start_stimulus(win, stimulus, send_eeg_triggers, send_nirs_triggers):
     elif stimulus[0] == 'sound':
         if 'Linux' in SYSTEM:
             pygame.init()
-            pygame.mixer.music.load(stimulus[2])
+            # pygame.mixer.music.load(stimulus[2])
+            # win.flip()
+            # pygame.mixer.music.play()
+            sound = pyglet.media.load(stimulus[2])
+            PLAYER = pyglet.media.Player()
+            PLAYER.queue(sound)
             win.flip()
-            pygame.mixer.music.play()
+            PLAYER.play()
         elif 'Windows' in SYSTEM:
             sound = pyglet.media.load(stimulus[2])
             PLAYER = pyglet.media.Player()
@@ -107,6 +111,7 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
         change = False
         if go_on is True and resp_clock.getTime() > go_show_time:
             stop_stimulus(stimulus=trial['go'])
+
             go_on = False
             change = True
         if trial['stop'] is not None:
@@ -139,6 +144,7 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
 
     if go_on is True:
         stop_stimulus(stimulus=trial['go'])
+        print resp_clock.getTime()
     if stop_on is True:
         stop_stimulus(stimulus=trial['stop'])
 
@@ -174,10 +180,10 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
     TRIGGERS_LIST = triggers_list
     TRIGGER_NO = trigger_no
 
-    # one_frame_time = 1.0 / frames_per_sec
+    one_frame_time = 1.0 / frames_per_sec
 
-    go_show_time = config['show_time_GO']  # - one_frame_time
-    resp_time = config['response_time']  # - one_frame_time
+    go_show_time = config['show_time_GO'] - one_frame_time
+    resp_time = config['response_time'] - one_frame_time
 
     data = list()
     trial_number = 1
@@ -201,11 +207,12 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                     stop_show_end = None
 
                 # draw tip
-                draw_tip(win=win, tip=trial['tip'][2], show_time=config['show_time_tip'])
+
+                draw_tip(win=win, tip=trial['tip'][2], show_time=config['show_time_tip'] - one_frame_time)
                 check_exit()
 
                 # draw background
-                draw_tip(win=win, tip=background[2], show_time=config['show_time_{}'.format(trial['tip'][1])])
+                draw_tip(win=win, tip=background[2], show_time=config['show_time_{}'.format(trial['tip'][1])] - one_frame_time)
                 check_exit()
 
                 # go, stop and resp
@@ -217,7 +224,7 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                 # rest
                 check_exit()
                 rest_time = random.uniform(config['show_time_break'][0], config['show_time_break'][1])
-                draw_tip(win=win, tip=background[2], show_time=rest_time)
+                draw_tip(win=win, tip=background[2], show_time=rest_time - one_frame_time)
                 check_exit()
 
                 # add data
