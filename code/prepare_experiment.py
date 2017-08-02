@@ -11,7 +11,7 @@ def prepare_go(list_go, number_of_trials):
     random.shuffle(rest_trials)
 
     go_table += rest_trials[:missing_trials]
-    random.shuffle(go_table)
+    # random.shuffle(go_table)
 
     go_table = [list_go[x] for x in go_table]
 
@@ -44,6 +44,19 @@ def prepare_stops(stops, number_of_trials, percent_of_trials_with_stop=25):
     new_stop_table = [stops[x] if x is not None else None for x in new_stop_table]
 
     return new_stop_table
+
+
+def prepare_stop_and_go(list_go, stops, number_of_trials, percent_of_trials_with_stop=25):
+    block_part_go_list = prepare_go(list_go, number_of_trials)
+    number_of_stop_types = len(stops)
+    number_of_trials_with_each_stop = number_of_trials * percent_of_trials_with_stop / 100. / number_of_stop_types
+    number_of_trials_with_each_stop = int(round(number_of_trials_with_each_stop))
+    block_part_stop_list = []
+    for stop in stops:
+        block_part_stop_list = sum([block_part_stop_list, [stop]*number_of_trials_with_each_stop], [])
+    number_of_None = number_of_trials - len(block_part_stop_list)
+    block_part_stop_list = sum([block_part_stop_list, [None] * number_of_None], [])
+    return block_part_go_list, block_part_stop_list
 
 
 def block_part_creator(go_table, stop_table, tip):
@@ -83,9 +96,12 @@ def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with
             for block_part in block:
                 training_block_part = []
                 for trials_type_key, trials_type_value in block_part.iteritems():
-                    block_part_go_list = prepare_go(list_go=list_go, number_of_trials=trials_type_value)
-                    block_part_stop_list = prepare_stops(stops=list_stops, number_of_trials=trials_type_value,
-                                                         percent_of_trials_with_stop=percent_of_trials_with_stop)
+                    # block_part_go_list = prepare_go(list_go=list_go, number_of_trials=trials_type_value)
+                    # block_part_stop_list = prepare_stops(stops=list_stops, number_of_trials=trials_type_value,
+                    #                                      percent_of_trials_with_stop=percent_of_trials_with_stop)
+                    block_part_go_list, block_part_stop_list = prepare_stop_and_go(list_go=list_go, stops=list_stops,
+                                                                                   number_of_trials=trials_type_value,
+                                                                                   percent_of_trials_with_stop=percent_of_trials_with_stop)
                     block_part_tip = [elem for elem in list_tip if elem[1] == trials_type_key][0]
                     training_block_part_type = block_part_creator(block_part_go_list, block_part_stop_list, block_part_tip)
                     training_block_part.extend(training_block_part_type)

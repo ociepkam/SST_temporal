@@ -144,7 +144,6 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
 
     if go_on is True:
         stop_stimulus(stimulus=trial['go'])
-        print resp_clock.getTime()
     if stop_on is True:
         stop_stimulus(stimulus=trial['stop'])
 
