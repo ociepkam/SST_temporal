@@ -51,13 +51,30 @@ def block_part_creator(go_table, stop_table, tip):
     return [{'go': go, 'stop': stop, 'tip': tip} for go, stop in zip(go_table, stop_table)]
 
 
+def randomize_block_part(block_part):
+    stops = [elem for elem in block_part if elem['stop'] is not None]
+    for elem in stops:
+        block_part.remove(elem)
+    random.shuffle(block_part)
+    after_stops = block_part[:len(stops)]
+    traials_to_shuffle = sum([stops, block_part[len(stops):]], [])
+    random.shuffle(traials_to_shuffle)
+    block_part = []
+    idx = 0
+    for elem in traials_to_shuffle:
+        block_part.append(elem)
+        if elem['stop'] is not None:
+            block_part.append(after_stops[idx])
+            idx += 1
+    return block_part
+
+
 def blocks_creator(blocks, breaks):
     assert len(blocks) == len(breaks), "len(blocks) != len(breaks)"
     blocks = [{'trials': block, 'text_after_block': text} for block, text in zip(blocks, breaks)]
     return blocks
 
 
-# TODO: randomizacja powoduje, ze pojawiaja sie dwa stopy pod rzad
 def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with_stop, breaks_name):
     trials = []
     if blocks:
@@ -72,7 +89,7 @@ def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with
                     block_part_tip = [elem for elem in list_tip if elem[1] == trials_type_key][0]
                     training_block_part_type = block_part_creator(block_part_go_list, block_part_stop_list, block_part_tip)
                     training_block_part.extend(training_block_part_type)
-                random.shuffle(training_block_part)
+                randomize_block_part(training_block_part)
                 training_block.append(training_block_part)
             trials.append(training_block)
         breaks = [os.path.join('messages', '{}_{}.txt'.format(breaks_name, idx + 1)) for idx in range(len(trials))]
@@ -82,7 +99,7 @@ def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with
 
 
 def prepare_experiment(training_blocks, experiment_blocks, list_go, list_tip, list_stops, percent_of_trials_with_stop):
-    assert percent_of_trials_with_stop <= 50, "procent stopow nie moze byc wiekszy od 50"
+    assert percent_of_trials_with_stop <= 50, "More than 50% of stops"
 
     training = prepare_trials(training_blocks, list_go, list_tip, list_stops,
                               percent_of_trials_with_stop, 'training_break')
