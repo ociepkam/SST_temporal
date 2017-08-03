@@ -94,7 +94,7 @@ def run():
 
     # Experiment
     beh, triggers_list = show(config=config, win=win, screen_res=screen_res, frames_per_sec=frames_per_sec,
-                              blocks=experiment, stops_times=stops_times_train, background=fixation,
+                              blocks=experiment, stops_times=stops_times, background=fixation,
                               trigger_no=trigger_no, triggers_list=list())
 
     # Save data
