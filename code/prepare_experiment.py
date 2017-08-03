@@ -105,7 +105,7 @@ def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with
                     block_part_tip = [elem for elem in list_tip if elem[1] == trials_type_key][0]
                     training_block_part_type = block_part_creator(block_part_go_list, block_part_stop_list, block_part_tip)
                     training_block_part.extend(training_block_part_type)
-                randomize_block_part(training_block_part)
+                training_block_part = randomize_block_part(training_block_part)
                 training_block.append(training_block_part)
             trials.append(training_block)
         breaks = [os.path.join('messages', '{}_{}.txt'.format(breaks_name, idx + 1)) for idx in range(len(trials))]
