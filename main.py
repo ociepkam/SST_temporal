@@ -95,7 +95,7 @@ def run():
     # Experiment
     beh, triggers_list = show(config=config, win=win, screen_res=screen_res, frames_per_sec=frames_per_sec,
                               blocks=experiment, stops_times=stops_times, background=fixation,
-                              trigger_no=trigger_no, triggers_list=list())
+                              trigger_no=trigger_no, triggers_list=list(), port_eeg=port_eeg)
 
     # Save data
     save_beh(data=beh, name=part_id)
