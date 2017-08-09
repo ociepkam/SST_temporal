@@ -6,6 +6,7 @@ class TriggerTypes(object):
     GO = 'GO'
     ST = 'ST'
     RE = 'RE'
+    TIP = 'TI'
 
 
 def create_eeg_port():
