@@ -1,4 +1,4 @@
-from psychopy import event, core
+from psychopy import visual, event, core
 import time
 import random
 import pygame
