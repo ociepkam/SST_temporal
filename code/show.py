@@ -274,7 +274,6 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                 stops_times = update_stops_times(trial=trial, config=config, response=response, stops_times=stops_times)
 
         # break info
-
         try:
             all_reactions_times /= (len(block['trials']) - no_reactions)
             all_reactions_times = round(all_reactions_times, 2)
