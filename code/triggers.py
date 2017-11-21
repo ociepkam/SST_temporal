@@ -6,6 +6,7 @@ class TriggerTypes(object):
     GO = 'GO'
     ST = 'ST'
     RE = 'RE'
+    TIP = 'TI'
 
 
 def create_eeg_port():
@@ -42,10 +43,13 @@ def prepare_trigger(trigger_no, triggers_list, trigger_type, trigger_name=None):
 def send_trigger(trigger_no, port_eeg=None, port_nirs=None, send_eeg_triggers=False, send_nirs_triggers=False):
     if send_eeg_triggers:
         try:
+
             port_eeg.setData(trigger_no)
+
             time.sleep(0.01)
             port_eeg.setData(0x00)
         except:
+
             pass
     if send_nirs_triggers:
         try:

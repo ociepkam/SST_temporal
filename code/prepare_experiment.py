@@ -42,7 +42,6 @@ def prepare_stops(stops, number_of_trials, percent_of_trials_with_stop=25):
             new_stop_table.append(None)
 
     new_stop_table = [stops[x] if x is not None else None for x in new_stop_table]
-
     return new_stop_table
 
 
@@ -89,6 +88,7 @@ def blocks_creator(blocks, breaks):
 
 
 def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with_stop, breaks_name):
+
     trials = []
     if blocks:
         for block in blocks:
@@ -102,6 +102,7 @@ def prepare_trials(blocks, list_go, list_tip, list_stops, percent_of_trials_with
                     block_part_go_list, block_part_stop_list = prepare_stop_and_go(list_go=list_go, stops=list_stops,
                                                                                    number_of_trials=trials_type_value,
                                                                                    percent_of_trials_with_stop=percent_of_trials_with_stop)
+
                     block_part_tip = [elem for elem in list_tip if elem[1] == trials_type_key][0]
                     training_block_part_type = block_part_creator(block_part_go_list, block_part_stop_list, block_part_tip)
                     training_block_part.extend(training_block_part_type)

@@ -1,4 +1,4 @@
-from psychopy import visual, event, core
+from psychopy import event, core
 import time
 import random
 import pygame
@@ -206,8 +206,18 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                     stop_show_end = None
 
                 # draw tip
+                trigger_name = prepare_trigger_name(trial=trial, stop_show_start=real_stop_show_start)
+                TRIGGER_NO, TRIGGERS_LIST = prepare_trigger(trigger_type=TriggerTypes.TIP, trigger_no=TRIGGER_NO,
+                                                            triggers_list=TRIGGERS_LIST, trigger_name=trigger_name)
 
-                draw_tip(win=win, tip=trial['tip'][2], show_time=config['show_time_tip'] - one_frame_time)
+                trial['tip'][2].setAutoDraw(True)
+                win.flip()
+                send_trigger(port_eeg=PORT_EEG, port_nirs=PORT_NIRS, trigger_no=TRIGGER_NO,
+                             send_eeg_triggers=config['send_EEG_trigg'],
+                             send_nirs_triggers=config['send_Nirs_trigg'])
+                time.sleep(config['show_time_tip'] - one_frame_time)
+                trial['tip'][2].setAutoDraw(False)
+                win.flip()
                 check_exit()
 
                 # draw background

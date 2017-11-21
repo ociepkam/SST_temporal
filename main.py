@@ -43,7 +43,9 @@ def run():
     trigger_no = 0
 
     # screen
-    win, screen_res, frames_per_sec = create_win(screen_color=config['screen_color'])
+    screen_color = list(map(lambda x: (x-128)/128., config['screen_color']))
+    print screen_color
+    win, screen_res, frames_per_sec = create_win(screen_color=screen_color)
 
     # load data
     list_stops = load_data(win=win, folder_name=folder_stop, config=config, screen_res=screen_res)
