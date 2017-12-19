@@ -149,10 +149,15 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
 
     # Add response to all trial triggers
     if response is not None:
-        TRIGGERS_LIST[-1] = (TRIGGERS_LIST[-1][0], TRIGGERS_LIST[-1][1][:-1] + response)
-        TRIGGERS_LIST[-2] = (TRIGGERS_LIST[-2][0], TRIGGERS_LIST[-2][1][:-1] + response)
+        if trial['stop'] is not None:
+            acc = "F"
+        else:
+            true_RE = [elem['key'] for elem in config['keys'] if elem['stim'] == trial['go'][1]]
+            acc = "T" if response in true_RE else "F"
+        TRIGGERS_LIST[-1] = (TRIGGERS_LIST[-1][0], TRIGGERS_LIST[-1][1][:-3] + response + '*' + acc)
+        TRIGGERS_LIST[-2] = (TRIGGERS_LIST[-2][0], TRIGGERS_LIST[-2][1][:-3] + response + '*' + acc)
         if TRIGGERS_LIST[-2][1].startswith('ST'):
-            TRIGGERS_LIST[-3] = (TRIGGERS_LIST[-3][0], TRIGGERS_LIST[-3][1][:-1] + response)
+            TRIGGERS_LIST[-3] = (TRIGGERS_LIST[-3][0], TRIGGERS_LIST[-3][1][:-3] + response + '*' + acc)
 
     return reaction_time, response
 

@@ -44,7 +44,7 @@ def run():
 
     # screen
     screen_color = list(map(lambda x: (x-128)/128., config['screen_color']))
-    print screen_color
+
     win, screen_res, frames_per_sec = create_win(screen_color=screen_color)
 
     # load data

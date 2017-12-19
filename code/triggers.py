@@ -25,8 +25,8 @@ def prepare_trigger_name(trial, stop_show_start=None):
         name += '*{}*{}'.format(trial['stop'][1], stop_show_start)
     else:
         name += '*-*-*-'
-    # for response
-    name += '*-'
+    # for response and acc
+    name += '*-*-'
     return name
 
 
