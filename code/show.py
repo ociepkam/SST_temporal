@@ -226,7 +226,8 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                 check_exit()
 
                 # draw background
-                draw_tip(win=win, tip=background[2], show_time=config['show_time_{}'.format(trial['tip'][1])] - one_frame_time)
+                draw_tip(win=win, tip=background[2],
+                         show_time=config['show_time_{}'.format(trial['tip'][1])] - one_frame_time)
                 check_exit()
 
                 # go, stop and resp

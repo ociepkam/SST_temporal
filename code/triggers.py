@@ -27,6 +27,7 @@ def prepare_trigger_name(trial, stop_show_start=None):
         name += '*-*-*-'
     # for response and acc
     name += '*-*-'
+
     return name
 
 
