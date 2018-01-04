@@ -5,10 +5,13 @@ send_Nirs_trigg: false
 
 ophthalmic_procedure: true
 
+#training_blocks: [[]]
+#experiment_blocks_v1: [[{ts: 4},{tl: 4}]]
+#experiment_blocks_v2: [[{ts: 4},{tl: 4}]]
+
 training_blocks: [[{ts: 5},{tl: 5},{ts: 15, tl: 15}], [{ns: 10, nl: 10}]]
-training_blocks: []
-experiment_blocks_v1: [[{ts: 64, tl: 64}],[{ts: 64, tl: 64}], [{ns: 64, nl: 64}], [{ns: 64, nl: 64}], [{ts: 64, tl: 64}], [{ts: 64, tl: 64}], [{ns: 64, nl: 64}], [{ns: 64, nl: 64}]]
-experiment_blocks_v2: [[{ns: 64, nl: 64}], [{ns: 64, nl: 64}], [{ts: 64, tl: 64}], [{ts: 64, tl: 64}], [{ns: 64, nl: 64}], [{ns: 64, nl: 64}], [{ts: 64, tl: 64}],[{ts: 64, tl: 64}]]
+experiment_blocks_v1: [[{ts: 80, tl: 80}],[{ts: 80, tl: 80}], [{ns: 80, nl: 80}], [{ns: 80, nl: 80}], [{ts: 80, tl: 80}], [{ts: 80, tl: 80}], [{ns: 80, nl: 80}], [{ns: 80, nl: 80}]]
+experiment_blocks_v2: [[{ns: 80, nl: 80}], [{ns: 80, nl: 80}], [{ts: 80, tl: 80}], [{ts: 80, tl: 80}], [{ns: 80, nl: 80}], [{ns: 80, nl: 80}], [{ts: 80, tl: 80}],[{ts: 80, tl: 80}]]
 
 break_show_answers_correctness: false
 break_show_response_time: false

@@ -1,1 +1,1 @@
-przycisk ,,{}'' {} palcem jesli pojawi sie {} albo przycisk  ,,{}'' {} palcem pojawi się {}
+Naciśnij spację aby rozpocząć trening.

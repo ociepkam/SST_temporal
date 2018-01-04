@@ -19,11 +19,11 @@ def experiment_info(observer):
     my_dlg.addText('Observer info')
     my_dlg.addField('Observer:', observer)
     my_dlg.addField('Keys matching:', choices=[1, 2])
-    my_dlg.addField('Experiment order:', choices=[1, 2])
+    # my_dlg.addField('Experiment order:', choices=[1, 2])
 
     my_dlg.show()
     if not my_dlg.OK:
         exit(1)
 
-    #          id               sex             age          observer       keys matching        experiment order
-    return my_dlg.data[0], my_dlg.data[2], my_dlg.data[1], my_dlg.data[3], int(my_dlg.data[4]), int(my_dlg.data[5]), date
+    #          id               sex             age          observer       keys matching
+    return my_dlg.data[0], my_dlg.data[2], my_dlg.data[1], my_dlg.data[3], int(my_dlg.data[4]), date

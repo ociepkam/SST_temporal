@@ -4,6 +4,7 @@ import random
 import pygame
 import pyglet
 import platform
+import gc
 
 from code.show_info import show_info, break_info  # , prepare_buttons_info
 from code.check_exit import check_exit
@@ -32,14 +33,14 @@ def start_stimulus(win, stimulus, send_eeg_triggers, send_nirs_triggers):
 
     if stimulus[0] == 'image':
         stimulus[2].setAutoDraw(True)
-        win.flip()
+        # win.flip()
         send_trigger(port_eeg=PORT_EEG, port_nirs=PORT_NIRS, trigger_no=TRIGGER_NO,
                      send_eeg_triggers=send_eeg_triggers,
                      send_nirs_triggers=send_nirs_triggers)
 
     elif stimulus[0] == 'text':
         stimulus[2].setAutoDraw(True)
-        win.flip()
+        # win.flip()
         send_trigger(port_eeg=PORT_EEG, port_nirs=PORT_NIRS, trigger_no=TRIGGER_NO,
                      send_eeg_triggers=send_eeg_triggers,
                      send_nirs_triggers=send_nirs_triggers)
@@ -47,19 +48,16 @@ def start_stimulus(win, stimulus, send_eeg_triggers, send_nirs_triggers):
     elif stimulus[0] == 'sound':
         if 'Linux' in SYSTEM:
             pygame.init()
-            # pygame.mixer.music.load(stimulus[2])
-            # win.flip()
-            # pygame.mixer.music.play()
             sound = pyglet.media.load(stimulus[2])
             PLAYER = pyglet.media.Player()
             PLAYER.queue(sound)
-            win.flip()
+            # win.flip()
             PLAYER.play()
         elif 'Windows' in SYSTEM:
             sound = pyglet.media.load(stimulus[2])
             PLAYER = pyglet.media.Player()
             PLAYER.queue(sound)
-            win.flip()
+            # win.flip()
             PLAYER.play()
 
         send_trigger(port_eeg=PORT_EEG, port_nirs=PORT_NIRS, trigger_no=TRIGGER_NO,
@@ -80,7 +78,9 @@ def stop_stimulus(stimulus):
 
     elif stimulus[0] == 'sound':
         if 'Linux' in SYSTEM:
+            PLAYER.pause()
             pygame.mixer.music.stop()
+            del PLAYER
             pygame.quit()
         elif 'Windows' in SYSTEM:
             PLAYER.pause()
@@ -108,12 +108,11 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
     win.flip()
 
     while resp_clock.getTime() < resp_time:
-        change = False
-        if go_on is True and resp_clock.getTime() > go_show_time:
+        if go_on and resp_clock.getTime() > go_show_time:
             stop_stimulus(stimulus=trial['go'])
-
             go_on = False
-            change = True
+            win.flip()
+
         if trial['stop'] is not None:
             if stop_on is None and resp_clock.getTime() > stop_show_start:
                 TRIGGER_NO, TRIGGERS_LIST = prepare_trigger(trigger_type=TriggerTypes.ST, trigger_no=TRIGGER_NO,
@@ -121,11 +120,11 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
                 start_stimulus(win=win, stimulus=trial['stop'], send_eeg_triggers=config['send_EEG_trigg'],
                                send_nirs_triggers=config['send_Nirs_trigg'])
                 stop_on = True
-                change = True
-            if stop_on is True and resp_clock.getTime() > stop_show_end:
+                win.flip()
+            if stop_on and resp_clock.getTime() > stop_show_end:
                 stop_stimulus(stimulus=trial['stop'])
                 stop_on = False
-                change = True
+                win.flip()
 
         key = event.getKeys(keyList=config['keys_list'])
         if key:
@@ -139,25 +138,31 @@ def run_trial(win, resp_clock, trial, resp_time, go_show_time, stop_show_end, st
             response = key[0]
             break
         check_exit()
-        if change is False:
-            win.flip()
 
-    if go_on is True:
+    if go_on:
         stop_stimulus(stimulus=trial['go'])
-    if stop_on is True:
+        win.flip()
+    if stop_on:
         stop_stimulus(stimulus=trial['stop'])
+        win.flip()
 
     # Add response to all trial triggers
     if response is not None:
-        if trial['stop'] is not None:
-            acc = "F"
-        else:
-            true_RE = [elem['key'] for elem in config['keys'] if elem['stim'] == trial['go'][1]]
-            acc = "T" if response in true_RE else "F"
+        true_RE = [elem['key'] for elem in config['keys'] if elem['stim'] == trial['go'][1]]
+        acc = "T" if response in true_RE else "F"
         TRIGGERS_LIST[-1] = (TRIGGERS_LIST[-1][0], TRIGGERS_LIST[-1][1][:-3] + response + '*' + acc)
         TRIGGERS_LIST[-2] = (TRIGGERS_LIST[-2][0], TRIGGERS_LIST[-2][1][:-3] + response + '*' + acc)
+        TRIGGERS_LIST[-3] = (TRIGGERS_LIST[-3][0], TRIGGERS_LIST[-3][1][:-3] + response + '*' + acc)
         if TRIGGERS_LIST[-2][1].startswith('ST'):
-            TRIGGERS_LIST[-3] = (TRIGGERS_LIST[-3][0], TRIGGERS_LIST[-3][1][:-3] + response + '*' + acc)
+            TRIGGERS_LIST[-4] = (TRIGGERS_LIST[-4][0], TRIGGERS_LIST[-4][1][:-3] + response + '*' + acc)
+    else:
+        if trial['stop'] is None:
+            TRIGGERS_LIST[-1] = (TRIGGERS_LIST[-1][0], TRIGGERS_LIST[-1][1][:-1] + "F")
+            TRIGGERS_LIST[-2] = (TRIGGERS_LIST[-2][0], TRIGGERS_LIST[-2][1][:-1] + "F")
+        else:
+            TRIGGERS_LIST[-1] = (TRIGGERS_LIST[-1][0], TRIGGERS_LIST[-1][1][:-1] + "T")
+            TRIGGERS_LIST[-2] = (TRIGGERS_LIST[-2][0], TRIGGERS_LIST[-2][1][:-1] + "T")
+            TRIGGERS_LIST[-3] = (TRIGGERS_LIST[-3][0], TRIGGERS_LIST[-3][1][:-1] + "T")
 
     return reaction_time, response
 
@@ -193,7 +198,7 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
     trial_number = 1
     resp_clock = core.Clock()
 
-    for block in blocks:
+    for block_nr, block in enumerate(blocks):
         all_reactions_times = 0.
         no_reactions = 0.
         answers_correctness = 0.
@@ -203,8 +208,8 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
             for trial in block_part:
                 if trial['stop'] is not None:
                     real_stop_show_start = stops_times[trial['tip'][1]]
-                    stop_show_start = real_stop_show_start  # - one_frame_time
-                    stop_show_end = stop_show_start + config['show_time_ST']
+                    stop_show_start = real_stop_show_start - one_frame_time - 0.025
+                    stop_show_end = stop_show_start + config['show_time_ST'] - one_frame_time
                 else:
                     real_stop_show_start = None
                     stop_show_start = None
@@ -227,7 +232,7 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
 
                 # draw background
                 draw_tip(win=win, tip=background[2],
-                         show_time=config['show_time_{}'.format(trial['tip'][1])] - one_frame_time)
+                         show_time=config['show_time_{}'.format(trial['tip'][1])] - 2 * one_frame_time)
                 check_exit()
 
                 # go, stop and resp
@@ -247,16 +252,18 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
                 true_RE = [elem['key'] for elem in config['keys'] if elem['stim'] == trial['go'][1]][0]
 
                 if trial['stop'] is not None:
+                    acc = 1 if response is None else 0
                     data.append({'Nr': trial_number,
                                  'tip_type': trial['tip'][1], 'GO_type': trial['go'][1],
                                  'RE_key': response, 'RE_time': reaction_time, 'RE_true': true_RE,
                                  'ST_name': trial['stop'][1],
-                                 'ST_wait_time': stops_times[trial['tip'][1]]})
+                                 'ST_wait_time': stops_times[trial['tip'][1]], 'acc': acc, "block_nr": block_nr+1})
                 else:
+                    acc = 1 if response == true_RE else 0
                     data.append({'Nr': trial_number,
                                  'tip_type': trial['tip'][1], 'GO_type': trial['go'][1],
                                  'RE_key': response, 'RE_true': true_RE, 'RE_time': reaction_time,
-                                 'ST_name': None, 'ST_wait_time': None})
+                                 'ST_name': None, 'ST_wait_time': None, 'acc': acc, "block_nr": block_nr+1})
                 trial_number += 1
 
                 # break info
@@ -278,6 +285,8 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
 
                 # update stops_times
                 stops_times = update_stops_times(trial=trial, config=config, response=response, stops_times=stops_times)
+
+                pygame.quit()
 
         # break info
         try:
@@ -306,5 +315,7 @@ def show(config, win, screen_res, frames_per_sec, blocks, stops_times, trigger_n
 
         show_info(win=win, file_name=block['text_after_block'], text_size=config['text_size'],
                   text_color=config['text_color'], screen_width=screen_res['width'], insert=break_extra_info)
+
+        gc.collect()
 
     return data, TRIGGERS_LIST

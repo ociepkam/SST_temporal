@@ -4,6 +4,7 @@
 from psychopy import logging
 import os
 import copy
+import random
 
 from code.load_data import load_config, load_data
 from code.experiment_info import experiment_info
@@ -26,8 +27,10 @@ folder_fixation = os.path.join('stimulus', 'fixation_point')
 def run():
     config = load_config()
 
-    part_id, sex, age, observer_id, keys_matching_version, experiment_order_version, date = experiment_info(
+    part_id, sex, age, observer_id, keys_matching_version, date = experiment_info(
         config['observer'])
+
+    experiment_order_version = random.choice([1, 2])
 
     logging.LogFile(os.path.join('results', 'logs', part_id + '.log'), level=logging.INFO)
     logging.info("Date: {}, ID: {}, Sex: {}, Age: {}, Observer: {}, Keys matching: {}, Experiment order: {}".format(
@@ -97,15 +100,15 @@ def run():
     # Experiment
     beh, triggers_list = show(config=config, win=win, screen_res=screen_res, frames_per_sec=frames_per_sec,
                               blocks=experiment, stops_times=stops_times, background=fixation,
-                              trigger_no=trigger_no, triggers_list=list(), port_eeg=port_eeg)
+                              trigger_no=trigger_no, triggers_list=triggers_list, port_eeg=port_eeg)
 
     # Save data
     save_beh(data=beh, name=part_id)
     save_triggers(data=triggers_list, name=part_id)
 
     # Experiment end
-    show_info(win=win, file_name=os.path.join('messages', 'end.txt'), text_size=config['text_size'],
-              text_color=config['text_color'], screen_width=screen_res['width'])
+    # show_info(win=win, file_name=os.path.join('messages', 'end.txt'), text_size=config['text_size'],
+    #           text_color=config['text_color'], screen_width=screen_res['width'])
     logging.flush()
 
 
